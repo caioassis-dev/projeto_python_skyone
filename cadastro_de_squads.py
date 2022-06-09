@@ -44,7 +44,6 @@ techlead.incluir_squad(squad)
 squads.append(squad)
 
 while True:
-
     nome_dev = input('\nNome do desenvolvedor: ')
     fone_dev = input ('Telefone do desenvolvedor: ')
     cargo_dev = input('Cargo do desenvolvedor: ')
@@ -56,8 +55,6 @@ while True:
     if option in 'Nm':
         break
 
-    option = input('\nDeseja adicionar mais uma squad [S/N]: ')
-
     squads = []
     nome_squad = input('\nNome da squad: ')
     nome_techlead = input('Nome do techlead da squad: ')
@@ -68,8 +65,15 @@ while True:
     squad.incluir_techlead(techlead)
     techlead.incluir_squad(squad)
 
+option = input('\nDeseja adicionar mais uma squad [S/N]: ')
 
-
+for squad in squads:
+    print(f'\n---------------------------{squad.nome}-------------------------------')
+    print(f'TeachLead: {squad.techlead.nome}')
+    print('\n-----Devs do squad-----')
+    for dev in squad.devs:
+        dev.exibir()
+    print(f'-----------------------------{squad.nome}-------------------------------')
 
 
 
