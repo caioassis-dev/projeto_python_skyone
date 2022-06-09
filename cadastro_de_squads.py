@@ -12,6 +12,9 @@ class Squad:
     def incluir_techlead(self, techlead):
         self.techlead = techlead
 
+    def incluir_dev(self, dev):
+        self.devs.append(dev)
+
 class Colaborador(Pessoa):
     def __init__(self, nome, fone, squad=None):
         super().__init__(nome, fone)
@@ -35,17 +38,26 @@ fone_techlead = input('Telefone do techlead ')
 
 squad = Squad(nome_squad)
 techlead = Colaborador(nome_techlead, fone_techlead)
-squads.append(squad)
-
-squad = squad(nome_squad)
-techlead = Colaborador(nome_techlead, fone_techlead)
 squad.incluir_techlead(techlead)
 techlead.incluir_squad(squad)
 
 squads.append(squad)
 
-
 while True:
+
+    nome_dev = input('\nNome do desenvolvedor: ')
+    fone_dev = input ('Telefone do desenvolvedor: ')
+    cargo_dev = input('Cargo do desenvolvedor: ')
+    dev = Dev(nome_dev, fone_dev, cargo_dev)
+    dev.incluir_squad(squad)
+    squad.incluir_dev(dev)
+
+    option = input('\nDeseja adicionar mais uma dev [S/N]; ')
+    if option in 'Nm':
+        break
+
+    option = input('\nDeseja adicionar mais uma squad [S/N]: ')
+
     squads = []
     nome_squad = input('\nNome da squad: ')
     nome_techlead = input('Nome do techlead da squad: ')
@@ -56,27 +68,9 @@ while True:
     squad.incluir_techlead(techlead)
     techlead.incluir_squad(squad)
 
-    squads.append(squad)
-
-    option = input('\nDeseja adicionar mais uma squad [S/N]: ')
-    if option in 'Nm':
-        break
 
 
-squads.append(squad)
 
-nome_dev = input('\nNome do desenvolvedor: ')
-fone_dev = input ('Telefone do desenvolvedor: ')
-cargo_dev = input('Cargo do desenvolvedor: ')
-dev = Dev(nome_dev, fone_dev, cargo_dev)
-
-option = input('\nDeseja adicionar mais uma squad [S/N]; ')
-
-nome_dev = input('\nNome do desenvolvedor: ')
-fone_dev = input ('Telefone do desenvolvedor: ')
-cargo_dev = input('Cargo do desenvolvedor: ')
-dev = Dev(nome_dev, fone_dev, cargo_dev)
-dev.incluir_squad(squad)
 
 
 
