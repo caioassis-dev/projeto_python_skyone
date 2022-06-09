@@ -57,15 +57,22 @@ while True:
     squad.incluir_dev(dev)
 
     option = input('\nDeseja adicionar mais uma dev [S/N]; ')
-    if option in 'Nm':
+    if option in 'Nn':
         break
 option = input('\nDeseja adicionar mais uma squad [S/N]: ')
 
 print('\n-==-=-=-=-=-=-=-=-=-=-=-=-=-=Sky.One Solutions=-=-=-=-=-=-=-=-=-=-=-=-=-=')
 print('Bem vindo ao sistema de cadastro de squads!\n')
 
+for squad in squads:
+    print(f'\n---------------------------{squad.nome}-------------------------------')
+    print(f'TeachLead: {squad.techlead.nome}')
+    print('\n-----Devs do squad-----')
+    for dev in squad.devs:
+        dev.exibir()
+    print(f'-----------------------------{squad.nome}-------------------------------')
+
 while True:
-    squads = []
     nome_squad = input('\nNome da squad: ')
     nome_techlead = input('Nome do techlead da squad: ')
     fone_techlead = input('Telefone do techlead: ')
@@ -76,14 +83,6 @@ while True:
     techlead.incluir_squad(squad)
 
 option = input('\nDeseja adicionar mais uma squad [S/N]: ')
-
-for squad in squads:
-    print(f'\n---------------------------{squad.nome}-------------------------------')
-    print(f'TeachLead: {squad.techlead.nome}')
-    print('\n-----Devs do squad-----')
-    for dev in squad.devs:
-        dev.exibir()
-    print(f'-----------------------------{squad.nome}-------------------------------')
 
 print('\n-==-=-=-=-=-=-=-=-=-=-=-=-=-=Sky.One Solutions=-=-=-=-=-=-=-=-=-=-=-=-=-=')
 
