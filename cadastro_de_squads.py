@@ -2,6 +2,9 @@ class Pessoa:
     def __init__(self, nome, fone):
         self.nome = nome
         self.fone = fone
+    def exibir(self):
+        print(f'-> {self.nome} - {self.fone}')
+
 
 class Squad:
     def __init__(self, nome, techlead=None, devs=None):
@@ -29,7 +32,9 @@ class Dev(Colaborador):
         self.cargo = cargo
     def incluir_dev(self, dev):
         self.devs.append(dev)
-
+    def exibir(self):
+        super().exibir()
+        print(f' Cargo de {self.cargo} na squad {self.squad.nome}\n')
 
 squads = []
 nome_squad = input('\nNome da Squad: ')
@@ -54,7 +59,12 @@ while True:
     option = input('\nDeseja adicionar mais uma dev [S/N]; ')
     if option in 'Nm':
         break
+option = input('\nDeseja adicionar mais uma squad [S/N]: ')
 
+print('\n-==-=-=-=-=-=-=-=-=-=-=-=-=-=Sky.One Solutions=-=-=-=-=-=-=-=-=-=-=-=-=-=')
+print('Bem vindo ao sistema de cadastro de squads!\n')
+
+while True:
     squads = []
     nome_squad = input('\nNome da squad: ')
     nome_techlead = input('Nome do techlead da squad: ')
@@ -75,7 +85,7 @@ for squad in squads:
         dev.exibir()
     print(f'-----------------------------{squad.nome}-------------------------------')
 
-
+print('\n-==-=-=-=-=-=-=-=-=-=-=-=-=-=Sky.One Solutions=-=-=-=-=-=-=-=-=-=-=-=-=-=')
 
 
 
