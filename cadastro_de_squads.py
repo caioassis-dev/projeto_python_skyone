@@ -28,3 +28,14 @@ class Dev(Colaborador):
         self.devs.append(dev)
 
 
+squads = []
+nome_squad = input('\nNome da Squad: ')
+nome_techlead = input('Nome do techlead da squad: ')
+fone_techlead = input('Telefone do techlead ')
+
+squad = Squad(nome_squad)
+techlead = Colaborador(nome_techlead, fone_techlead)
+squads.append(squad)
+
+
+
